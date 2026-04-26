@@ -1,0 +1,14 @@
+{
+  "name": "release-check",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "install:all": "npm install",
+    "db:init": "npm run db:init --prefix server",
+    "build": "npm run build --prefix client"
+  }
+}

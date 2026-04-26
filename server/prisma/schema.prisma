@@ -1,0 +1,22 @@
+// Prisma Schema for Release Checklist Tool
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Release {
+  id             Int      @id @default(autoincrement())
+  name           String
+  releaseDate    DateTime @map("release_date")
+  additionalInfo String?  @map("additional_info")
+  stepState      Json     @default("{}") @map("step_state")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  @@map("releases")
+}

@@ -1,0 +1,262 @@
+/* ========================================
+   Design Tokens & Global Styles
+   ======================================== */
+:root {
+  /* Primary palette — sleek purple/indigo */
+  --color-primary: hsl(245, 75%, 65%);
+  --color-primary-hover: hsl(245, 75%, 58%);
+  --color-primary-light: hsl(245, 100%, 98%);
+  --color-primary-glow: hsla(245, 75%, 65%, 0.15);
+
+  /* Status colors — more modern HSL */
+  --color-done: hsl(165, 80%, 40%);
+  --color-ongoing: hsl(35, 95%, 55%);
+  --color-planned: hsl(210, 15%, 65%);
+
+  /* Neutral palette */
+  --color-bg: hsl(210, 20%, 98%);
+  --color-surface: hsl(0, 0%, 100%);
+  --color-border: hsl(210, 15%, 92%);
+  --color-text: hsl(210, 25%, 15%);
+  --color-text-secondary: hsl(210, 15%, 45%);
+  --color-text-muted: hsl(210, 10%, 70%);
+
+  /* Glassmorphism accents */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3.5rem;
+
+  /* Constraints */
+  --container-width: 1000px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Premium Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.04), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, 0.08);
+
+  /* Typography */
+  --font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   Button System
+   ======================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: 0.7rem 1.4rem;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 4px 12px var(--color-primary-glow);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--color-primary-glow);
+}
+
+.btn-secondary {
+  background: var(--color-border);
+  color: var(--color-text);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: hsl(210, 15%, 88%);
+  transform: translateY(-1px);
+}
+
+.btn-danger {
+  background: hsl(0, 85%, 65%);
+  color: #fff;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: hsl(0, 85%, 60%);
+  transform: translateY(-1px);
+}
+
+.btn-sm {
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-view {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.btn-view:hover:not(:disabled) {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-delete {
+  background: hsl(0, 100%, 97%);
+  color: hsl(0, 85%, 60%);
+}
+
+.btn-delete:hover:not(:disabled) {
+  background: hsl(0, 85%, 60%);
+  color: #fff;
+}
+
+.btn-icon {
+  font-size: 1.1rem;
+}
+
+.btn-new-release {
+  padding: 0.75rem 1.6rem;
+  font-size: 0.95rem;
+}
+
+/* ========================================
+   Status Badges
+   ======================================== */
+.status-badge {
+  display: inline-block;
+  padding: 0.2rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+}
+
+.status-badge--done {
+  background: #e6fff7;
+  color: var(--color-done);
+}
+
+.status-badge--ongoing {
+  background: #fff8e1;
+  color: #e17055;
+}
+
+.status-badge--planned {
+  background: #f1f2f6;
+  color: var(--color-text-secondary);
+}
+
+/* ========================================
+   Form Elements
+   ======================================== */
+input[type="text"],
+input[type="date"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background: var(--color-surface);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.12);
+}
+
+textarea {
+  resize: vertical;
+}
+
+label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+/* ========================================
+   Loading & Error
+   ======================================== */
+.loading {
+  text-align: center;
+  padding: var(--spacing-2xl);
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.error-message {
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: var(--color-danger);
+  background: #ffeaea;
+  border-radius: var(--radius-md);
+  margin: var(--spacing-md);
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-2xl) !important;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
