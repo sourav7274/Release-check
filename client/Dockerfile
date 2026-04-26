@@ -22,8 +22,8 @@ FROM nginx:stable-alpine
 # Copy built files from stage 1
 COPY --from=build-stage /app/client/dist /usr/share/nginx/html
 
-# Copy custom nginx config if needed (optional)
-# COPY client/nginx.conf /etc/nginx/conf.d/default.conf
+# Copy custom nginx config
+COPY client/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
