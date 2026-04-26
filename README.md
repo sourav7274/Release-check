@@ -86,6 +86,13 @@ npm run dev
 ```
 The app will be available at `http://localhost:5173`.
 
+### 🐳 Run with Docker (Optional)
+If you have Docker installed, you can run the entire stack with one command:
+```bash
+docker-compose up --build
+```
+The frontend will be at `http://localhost` and the API at `http://localhost:3001`.
+
 ---
 
 ## ☁️ Deployment (Vercel)
