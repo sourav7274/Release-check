@@ -2,8 +2,6 @@
 
 A sleek, functional single-page application (SPA) designed to help developers manage their release process with ease. Built with **React**, **Node.js**, and **MongoDB**.
 
-![ReleaseCheck UI](https://public-swap.s3.us-east-1.amazonaws.com/releasecheck.png)
-
 ## ✨ Features
 
 - **Dynamic Checklist**: track 7-10 mandatory steps for every release.
