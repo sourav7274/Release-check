@@ -62,7 +62,7 @@ cd release_check
 ```
 
 ### 2. Setup Environment Variables
-Create a `.env` file in the `server` directory:
+Create a `.env` file in the **root** directory:
 ```env
 DATABASE_URL=your_mongodb_connection_string
 PORT=3001
@@ -87,7 +87,7 @@ npm run dev
 The app will be available at `http://localhost:5173`.
 
 ### 🐳 Run with Docker (Optional)
-If you have Docker installed, you can run the entire stack with one command:
+If you have Docker installed, you can run the entire stack with one command. Make sure you have your `.env` file in the root directory.
 ```bash
 docker-compose up --build
 ```
@@ -97,14 +97,13 @@ The frontend will be at `http://localhost` and the API at `http://localhost:3001
 
 ## ☁️ Deployment (Vercel)
 
-This project is configured for a single-repo deployment on Vercel using the **Vercel Monorepo** pattern or via a custom `vercel.json` configuration.
+This project is configured for a single-repo deployment on Vercel.
 
 1. **Frontend**: The Vite app in `/client` is built and served as static files.
-2. **Backend**: The Express app in `/server` is deployed as a Serverless Function.
+2. **Backend**: The Express app in `/server` is deployed as a Serverless Function via the `/api/index.js` bridge.
 
 ### Environment Variables for Vercel:
 - `DATABASE_URL`: Your MongoDB production string.
-- `VITE_API_URL`: (Optional) URL of your deployed API.
 
 ---
 
